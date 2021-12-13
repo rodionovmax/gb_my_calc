@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Calculator</string>
+    <string name="key_ac">AC</string>
+    <string name="key_plus_minus">+/-</string>
+    <string name="key_percent">%</string>
+    <string name="key_divide">÷</string>
+    <string name="key_multiply">×</string>
+    <string name="key_minus">-</string>
+    <string name="key_plus">+</string>
+    <string name="key_equal">=</string>
 </resources>
