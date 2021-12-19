@@ -12,5 +12,36 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="materialButtonStyle">@style/digit_button</item>
+        <!-- Remove title bar -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
+
+    <style name="digit_button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/digit_button</item>
+        <item name="android:shape">rectangle</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:height">70dp</item>
+    </style>
+
+    <style name="light_grey_button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/light_grey_button</item>
+        <item name="android:shape">rectangle</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="orange_button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/orange_button</item>
+        <item name="android:shape">rectangle</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>
