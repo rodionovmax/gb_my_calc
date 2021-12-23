@@ -1,5 +1,6 @@
 package com.gb.calculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 
-    private static final String TAG = "isOperatorAdded: ";
+    private static final String TAG = "myCustomLogger: ";
     private final int[] numericButtons = {
             R.id.key_0, R.id.key_1, R.id.key_2, R.id.key_3, R.id.key_4,
             R.id.key_5, R.id.key_6, R.id.key_7, R.id.key_8, R.id.key_9
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView display;
     private boolean lastNumeric = false;
     private boolean lastDot = false;
+
+    public static final String DISPLAY = "DISPLAY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,21 @@ public class MainActivity extends AppCompatActivity {
         onPercent();
         onEqual();
 
+    }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(DISPLAY, display.getText().toString());
+        Log.d(TAG, "onSaveInstanceState: " + display.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        String display_output = savedInstanceState.getString(DISPLAY);
+        Log.d(TAG, "onRestoreInstanceState: " + display_output);
+        display.setText(display_output);
     }
 
 
