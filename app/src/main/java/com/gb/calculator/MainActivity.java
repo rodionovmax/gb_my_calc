@@ -21,18 +21,19 @@ public class MainActivity extends AppCompatActivity {
     private final int[] operandButtons = {
             R.id.key_divide, R.id.key_multiply, R.id.key_plus, R.id.key_minus
     };
-    private TextView display;
+    private TextView tvDisplay;
     private boolean lastNumeric = false;
     private boolean lastDot = false;
 
     public static final String DISPLAY = "DISPLAY";
+    private Display display = new Display();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_constraint);
 
-        this.display = findViewById(R.id.display);
+        this.tvDisplay = findViewById(R.id.display);
 
         onDigit();
         onOperator();
@@ -47,16 +48,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(DISPLAY, display.getText().toString());
-        Log.d(TAG, "onSaveInstanceState: " + display.getText().toString());
+//        Option 1. Save value as String
+//        outState.putString(DISPLAY, tvDisplay.getText().toString());
+
+//        Option 2. Save as Parcelable
+        display.setDisplay(tvDisplay.getText().toString());
+        outState.putParcelable(DISPLAY, display);
+        Log.d(TAG, "onSaveInstanceState: " + display.getDisplay());
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        String display_output = savedInstanceState.getString(DISPLAY);
-        Log.d(TAG, "onRestoreInstanceState: " + display_output);
-        display.setText(display_output);
+//        Option 1. Get display output as String
+//        String display_output = savedInstanceState.getString(DISPLAY);
+
+//        Option 2. Get display output as Parcelable
+        Display display_output = savedInstanceState.getParcelable(DISPLAY);
+        Log.d(TAG, "onRestoreInstanceState: " + display_output.getDisplay());
+        tvDisplay.setText(display_output.getDisplay());
     }
 
 
@@ -66,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
     private void onDigit() {
         View.OnClickListener listener = view -> {
             Button button = (Button) view;
-            display.append(button.getText().toString());
+            tvDisplay.append(button.getText().toString());
             lastNumeric = true;
         };
 
@@ -82,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener listener = view -> {
             Button button = (Button) view;
 
-            if (lastNumeric && !isOperatorAdded(display.getText().toString())) {
-                display.append(button.getText().toString());
+            if (lastNumeric && !isOperatorAdded(tvDisplay.getText().toString())) {
+                tvDisplay.append(button.getText().toString());
                 lastNumeric = false;
                 lastDot = false;
             }
@@ -117,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
     private void onClear() {
         Button clearBtn = findViewById(R.id.key_ac);
         clearBtn.setOnClickListener(view -> {
-            display.setText("");
+            tvDisplay.setText("");
             lastNumeric = false;
             lastDot = false;
         });
@@ -130,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         Button decimalBtn = findViewById(R.id.key_decimal);
         decimalBtn.setOnClickListener(view -> {
             if (lastNumeric && !lastDot) {
-                display.append(decimalBtn.getText().toString());
+                tvDisplay.append(decimalBtn.getText().toString());
                 lastNumeric = false;
                 lastDot = true;
             }
@@ -141,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     private void onEqual() {
         Button equalBtn = findViewById(R.id.key_equal);
         equalBtn.setOnClickListener(view -> {
-            if (lastNumeric && isOperatorAdded(display.getText().toString())) {
+            if (lastNumeric && isOperatorAdded(tvDisplay.getText().toString())) {
 
                 // Show a toast message as a placeholder
                 Toast.makeText(
