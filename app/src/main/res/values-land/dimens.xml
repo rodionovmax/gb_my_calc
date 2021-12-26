@@ -4,4 +4,7 @@
     <dimen name="margin_title_bottom">10dp</dimen>
     <dimen name="title_text_size">18sp</dimen>
     <dimen name="display_horizontal_margin">25dp</dimen>
+
+    <dimen name="btn_layout_width">wrap_content</dimen>
+    <dimen name="btn_layout_height">wrap_content</dimen>
 </resources>

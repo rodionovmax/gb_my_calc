@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="GeneralButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:shape">rectangle</item>
+        <item name="cornerRadius">@dimen/btn_corner_radius</item>
+        <item name="android:textSize">@dimen/btn_text_size</item>
+        <item name="android:layout_width">@dimen/btn_layout_width</item>
+        <item name="android:layout_height">@dimen/btn_layout_height</item>
+    </style>
+
+    <style name="DigitButton" parent="GeneralButtonStyle">
+        <item name="backgroundTint">@color/digit_button</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="LightGreyButton" parent="GeneralButtonStyle">
+        <item name="backgroundTint">@color/light_grey_button</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="OrangeButton" parent="GeneralButtonStyle">
+        <item name="backgroundTint">@color/orange_button</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MainBackground">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="srcCompat">@drawable/steel</item>
+    </style>
+
+
+</resources>
