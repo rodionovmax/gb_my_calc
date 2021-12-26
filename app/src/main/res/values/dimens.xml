@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_vertical_lines">10dp</dimen>
+    <dimen name="margin_title_bottom">20dp</dimen>
+    <dimen name="title_text_size">24sp</dimen>
+    <dimen name="display_horizontal_margin">5dp</dimen>
+    <dimen name="display_horizontal_padding">10dp</dimen>
+    <dimen name="display_text_size">64sp</dimen>
+</resources>
