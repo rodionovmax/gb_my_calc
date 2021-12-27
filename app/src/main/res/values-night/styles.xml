@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DigitButton" parent="GeneralButtonStyle">
+        <item name="backgroundTint">@color/black</item>
+        <item name="android:textColor">@color/acid_green</item>
+    </style>
+
+    <style name="LightGreyButton" parent="GeneralButtonStyle">
+        <item name="backgroundTint">@color/dark_grey</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="OrangeButton" parent="GeneralButtonStyle">
+        <item name="backgroundTint">@color/acid_blue</item>
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="MainBackground">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="srcCompat">@drawable/dark_theme_background</item>
+    </style>
+
+    <style name="CalcTitle">
+        <item name="android:textColor">@color/acid_green</item>
+    </style>
+
+    <style name="Display">
+        <item name="android:textColor">@color/acid_green</item>
+    </style>
+
+</resources>

@@ -3,4 +3,6 @@
     <string name="app_name">Калькулятор</string>
     <string name="calc_title">Квасио</string>
     <string name="toast_calculating_results_msg">Заполнитель для расчета результатов …</string>
+    <string name="disable_dark_mode">Отключить темную тему</string>
+    <string name="enable_dark_mode">Включить темную тему</string>
 </resources>
