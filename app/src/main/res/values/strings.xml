@@ -22,4 +22,5 @@
     <string name="display_entry">0</string>
     <string name="main_background">background</string>
     <string name="calc_title">Квасио</string>
+    <string name="toast_calculating_results_msg">Placeholder for calculating results …</string>
 </resources>
