@@ -97,6 +97,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_ac"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/LightGreyButton"
             android:text="@string/key_ac"
             app:layout_constraintBottom_toTopOf="@+id/key_7"
@@ -109,6 +111,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_plus_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/LightGreyButton"
             android:text="@string/key_plus_minus"
             app:layout_constraintBottom_toTopOf="@+id/key_8"
@@ -121,6 +125,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/LightGreyButton"
             android:text="@string/key_percent"
             app:layout_constraintBottom_toTopOf="@+id/key_9"
@@ -133,6 +139,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_divide"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/OrangeButton"
             android:text="@string/key_divide"
             app:layout_constraintBottom_toTopOf="@+id/key_multiply"
@@ -145,6 +153,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_7"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_7"
             app:layout_constraintBottom_toTopOf="@+id/key_4"
@@ -155,6 +165,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_8"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_8"
             app:layout_constraintBottom_toTopOf="@+id/key_5"
@@ -165,6 +177,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_9"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_9"
             app:layout_constraintBottom_toTopOf="@+id/key_6"
@@ -175,6 +189,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_multiply"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/OrangeButton"
             android:text="@string/key_multiply"
             app:layout_constraintBottom_toTopOf="@+id/key_minus"
@@ -185,6 +201,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_4"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_4"
             app:layout_constraintBottom_toTopOf="@+id/key_1"
@@ -195,6 +213,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_5"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_5"
             app:layout_constraintBottom_toTopOf="@+id/key_2"
@@ -205,6 +225,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_6"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_6"
             app:layout_constraintBottom_toTopOf="@+id/key_3"
@@ -215,6 +237,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/OrangeButton"
             android:text="@string/key_minus"
             app:layout_constraintBottom_toTopOf="@+id/key_plus"
@@ -225,6 +249,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_1"
             app:layout_constraintBottom_toTopOf="@+id/key_0"
@@ -235,6 +261,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_2"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_2"
             app:layout_constraintBottom_toTopOf="@+id/key_0"
@@ -245,6 +273,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_3"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_3"
             app:layout_constraintBottom_toTopOf="@+id/key_decimal"
@@ -255,6 +285,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_plus"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/OrangeButton"
             android:text="@string/key_plus"
             app:layout_constraintBottom_toTopOf="@+id/key_equal"
@@ -266,6 +298,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_0"
             style="@style/DigitButton"
+            android:layout_height="0dp"
             android:layout_width="0dp"
             android:text="@string/key_0"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -276,6 +309,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_decimal"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/DigitButton"
             android:text="@string/key_decimal"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -286,6 +321,8 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/key_equal"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             style="@style/OrangeButton"
             android:text="@string/key_equal"
             app:layout_constraintBottom_toBottomOf="parent"
