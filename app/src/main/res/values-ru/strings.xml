@@ -3,6 +3,9 @@
     <string name="app_name">Калькулятор</string>
     <string name="calc_title">Квасио</string>
     <string name="toast_calculating_results_msg">Заполнитель для расчета результатов …</string>
-    <string name="disable_dark_mode">Отключить темную тему</string>
-    <string name="enable_dark_mode">Включить темную тему</string>
+    <string name="main_settings_btn">Настройки</string>
+    <string name="settings_title">Настройки</string>
+    <string name="settings_light_mode">Светлая тема</string>
+    <string name="settings_dark_mode">Темная тема</string>
+    <string name="settings_apply_btn">Применить</string>
 </resources>

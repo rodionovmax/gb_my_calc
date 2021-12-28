@@ -23,6 +23,9 @@
     <string name="main_background" translatable="false">background</string>
     <string name="calc_title">Kvasio</string>
     <string name="toast_calculating_results_msg">Placeholder for calculating results …</string>
-    <string name="disable_dark_mode">Disable Dark Mode</string>
-    <string name="enable_dark_mode">Enable Dark Mode</string>
+    <string name="main_settings_btn">Settings</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_light_mode">Light Mode</string>
+    <string name="settings_dark_mode">Dark Mode</string>
+    <string name="settings_apply_btn">Apply</string>
 </resources>

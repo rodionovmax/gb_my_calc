@@ -1,9 +1,13 @@
 package com.gb.calculator;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +16,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     private static final String TAG = "myCustomLogger: ";
+
     private final int[] numericButtons = {
             R.id.key_0, R.id.key_1, R.id.key_2, R.id.key_3, R.id.key_4,
             R.id.key_5, R.id.key_6, R.id.key_7, R.id.key_8, R.id.key_9
@@ -30,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String DISPLAY = "DISPLAY";
     private Display display = new Display();
 
-    private Button btnToggleDark;
+    private Button settingsBtn;
+    public static final String MODE = "isDarkModeOn";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,60 +53,18 @@ public class MainActivity extends AppCompatActivity {
         onPercent();
         onEqual();
 
-        btnToggleDark = findViewById(R.id.night_mode_button);
+        settingsBtn = findViewById(R.id.settings_button);
+        settingsBtn.setOnClickListener(this);
 
-        // Saving state of our app using SharedPreferences
-        SharedPreferences sharedPreferences = getSharedPreferences(
-                "sharedPrefs", MODE_PRIVATE);
-        final SharedPreferences.Editor editor = sharedPreferences.edit();
-        final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
+        // Get MODE in shared preferences
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        final boolean isDarkModeOn = sharedPreferences.getBoolean(MODE, false);
 
-        // When user reopens the app after applying dark/light mode
         if (isDarkModeOn) {
-            AppCompatDelegate
-                    .setDefaultNightMode(
-                            AppCompatDelegate
-                                    .MODE_NIGHT_YES);
-            btnToggleDark.setText(R.string.disable_dark_mode);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
-            AppCompatDelegate
-                    .setDefaultNightMode(
-                            AppCompatDelegate
-                                    .MODE_NIGHT_NO);
-            btnToggleDark.setText(R.string.enable_dark_mode);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-
-        btnToggleDark.setOnClickListener(view -> {
-            
-            if (isDarkModeOn) {
-
-                // if dark mode is on it will turn it off
-                AppCompatDelegate
-                        .setDefaultNightMode(
-                                AppCompatDelegate
-                                        .MODE_NIGHT_NO);
-
-                editor.putBoolean("isDarkModeOn", false);
-                editor.apply();
-
-                // change text of Button
-                btnToggleDark.setText(R.string.enable_dark_mode);
-            }
-            else {
-
-                // if dark mode is off it will turn it on
-                AppCompatDelegate
-                        .setDefaultNightMode(
-                                AppCompatDelegate
-                                        .MODE_NIGHT_YES);
-
-                editor.putBoolean("isDarkModeOn", true);
-                editor.apply();
-
-                // change text of Button
-                btnToggleDark.setText(R.string.disable_dark_mode);
-            }
-        });
 
     }
 
@@ -126,6 +90,12 @@ public class MainActivity extends AppCompatActivity {
         Display display_output = savedInstanceState.getParcelable(DISPLAY);
         Log.d(TAG, "onRestoreInstanceState: " + display_output.getDisplay());
         tvDisplay.setText(display_output.getDisplay());
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent settingsIntent = new Intent(this, Settings.class);
+        startActivity(settingsIntent);
     }
 
 
@@ -231,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
     private void onChangeSign() {
 
     }
-
 
 }
 

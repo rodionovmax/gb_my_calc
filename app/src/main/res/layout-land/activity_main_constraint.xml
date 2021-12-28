@@ -70,13 +70,13 @@
         app:layout_constraintStart_toStartOf="@id/display" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/night_mode_button"
+        android:id="@+id/settings_button"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         style="@style/NightModeButton"
         app:layout_constraintBottom_toTopOf="@id/display"
         app:layout_constraintEnd_toEndOf="@id/display"
-        android:text="@string/disable_dark_mode" />
+        android:text="@string/main_settings_btn" />
 
 
     <TextView

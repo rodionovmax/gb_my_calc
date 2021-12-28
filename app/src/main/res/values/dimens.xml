@@ -12,5 +12,8 @@
 
     <dimen name="btn_corner_radius">10dp</dimen>
     <dimen name="btn_text_size">24sp</dimen>
+    <dimen name="settings_title_text_size">36sp</dimen>
+    <dimen name="settings_horizontal_margin">15dp</dimen>
+    <dimen name="settings_title_margin_top">40dp</dimen>
 
 </resources>
