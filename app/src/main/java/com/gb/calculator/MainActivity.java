@@ -176,30 +176,115 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-    // TODO: implement later
     private void onEqual() {
         Button equalBtn = findViewById(R.id.key_equal);
         equalBtn.setOnClickListener(view -> {
-            if (lastNumeric && isOperatorAdded(tvDisplay.getText().toString())) {
+            if (lastNumeric) {
+                String displayValue = tvDisplay.getText().toString();
 
-                // Show a toast message as a placeholder
-                Toast.makeText(
-                        MainActivity.this,
-                        getResources().getString(R.string.toast_calculating_results_msg),
-                        Toast.LENGTH_SHORT
-                ).show();
+                String prefix = "";
+
+                try {
+                    if (displayValue.startsWith("-")) {
+                        prefix = "-";
+                        displayValue = displayValue.substring(1);
+                    }
+
+                    if (displayValue.contains("-")) {
+                        String[] splitValue = displayValue.split("-");
+
+                        String one = splitValue[0];
+                        String two = splitValue[1];
+
+                        if (!prefix.isEmpty()) {
+                            one = prefix + one;
+                        }
+
+                        double res = Double.parseDouble(one) - Double.parseDouble(two);
+                        String resultToDisplay = Double.toString(res);
+                        tvDisplay.setText(removeZeroAfterDot(resultToDisplay));
+                    } else if (displayValue.contains("+")) {
+                        String[] splitValue = displayValue.split("\\+");
+
+                        String one = splitValue[0];
+                        String two = splitValue[1];
+
+                        if (!prefix.isEmpty()) {
+                            one = prefix + one;
+                        }
+
+                        double res = Double.parseDouble(one) + Double.parseDouble(two);
+                        String resultToDisplay = Double.toString(res);
+                        tvDisplay.setText(removeZeroAfterDot(resultToDisplay));
+                    } else if (displayValue.contains("×")) {
+                        String[] splitValue = displayValue.split("×");
+
+                        String one = splitValue[0];
+                        String two = splitValue[1];
+
+                        if (!prefix.isEmpty()) {
+                            one = prefix + one;
+                        }
+
+                        double res = Double.parseDouble(one) * Double.parseDouble(two);
+                        String resultToDisplay = Double.toString(res);
+                        tvDisplay.setText(removeZeroAfterDot(resultToDisplay));
+                    } else if (displayValue.contains("÷")) {
+                        String[] splitValue = displayValue.split("÷");
+
+                        String one = splitValue[0];
+                        String two = splitValue[1];
+
+                        if (!prefix.isEmpty()) {
+                            one = prefix + one;
+                        }
+
+                        double res = Double.parseDouble(one) / Double.parseDouble(two);
+                        String resultToDisplay = Double.toString(res);
+                        tvDisplay.setText(removeZeroAfterDot(resultToDisplay));
+                    }
+                } catch (ArithmeticException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
     }
 
-    // TODO: implement later
-    private void onPercent() {
-
+    private String removeZeroAfterDot(String result) {
+        String value = result;
+        if (result.contains(".0")) {
+            value = result.substring(0, result.length() - 2);
+        }
+        return value;
     }
 
-    // TODO: implement later
-    private void onChangeSign() {
+    private void onPercent() {
+        Button percentBtn = findViewById(R.id.key_percent);
+        percentBtn.setOnClickListener(view -> {
+            if (lastNumeric && !isOperatorAdded(tvDisplay.getText().toString())) {
+                String value = tvDisplay.getText().toString();
+                double parsedValue = Double.parseDouble(value);
+                parsedValue = parsedValue / 100;
+                String valueToString = Double.toString(parsedValue);
+                tvDisplay.setText(valueToString);
+            }
+        });
+    }
 
+    private void onChangeSign() {
+        Button changeSignBtn = findViewById(R.id.key_plus_minus);
+        changeSignBtn.setOnClickListener(view -> {
+            String displayValue = tvDisplay.getText().toString();
+            String changedValue;
+            if (displayValue.startsWith("-") && !isOperatorAdded(tvDisplay.getText().toString())) {
+                changedValue = displayValue.substring(1);
+                tvDisplay.setText(changedValue);
+            } else if (!displayValue.startsWith("-") && !isOperatorAdded(tvDisplay.getText().toString())) {
+                changedValue = "-" + displayValue;
+                tvDisplay.setText(changedValue);
+            }
+        });
     }
 
 }
