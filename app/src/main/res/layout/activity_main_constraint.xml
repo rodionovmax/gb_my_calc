@@ -11,9 +11,8 @@
         android:id="@+id/background_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/main_background"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/steel" />
+        style="@style/MainBackground"
+        android:contentDescription="@string/main_background"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_horizontal_display_bottom"
@@ -34,16 +33,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="10dp" />
+        app:layout_constraintGuide_begin="@dimen/margin_vertical_lines" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_vertical_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="785dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintGuide_end="10dp"
+        app:layout_constraintGuide_end="@dimen/margin_vertical_lines"
         app:layout_constraintTop_toBottomOf="@+id/guideline_vertical_left" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -63,26 +61,35 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="@dimen/margin_title_bottom"
         android:text="@string/calc_title"
-        android:textColor="@color/white"
-        android:textSize="24sp"
+        style="@style/CalcTitle"
+        android:textSize="@dimen/title_text_size"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/display"
         app:layout_constraintStart_toStartOf="@id/display" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/night_mode_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/NightModeButton"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@id/display"
+        app:layout_constraintEnd_toEndOf="@id/display"
+        android:text="@string/disable_dark_mode" />
 
     <TextView
         android:id="@+id/display"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="5dp"
+        android:layout_marginHorizontal="@dimen/display_horizontal_margin"
         android:background="@drawable/display_background"
-        android:ems="9"
         android:maxLength="10"
         android:gravity="center_vertical|end"
-        android:textSize="64sp"
-        android:paddingHorizontal="10dp"
+        android:textSize="@dimen/display_text_size"
+        style="@style/Display"
+        android:paddingHorizontal="@dimen/display_horizontal_padding"
         app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_display_top"
         app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_display_bottom"
         app:layout_constraintLeft_toRightOf="@id/guideline_vertical_left"
@@ -97,11 +104,9 @@
         app:layout_constraintStart_toStartOf="@id/guideline_vertical_left"
         app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_keyboard_top">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_ac"
-            style="@style/light_grey_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/LightGreyButton"
             android:text="@string/key_ac"
             app:layout_constraintBottom_toTopOf="@+id/key_7"
             app:layout_constraintEnd_toStartOf="@+id/key_plus_minus"
@@ -111,11 +116,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_plus_minus"
-            style="@style/light_grey_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/LightGreyButton"
             android:text="@string/key_plus_minus"
             app:layout_constraintBottom_toTopOf="@+id/key_8"
             app:layout_constraintEnd_toStartOf="@+id/key_percent"
@@ -125,11 +128,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_percent"
-            style="@style/light_grey_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/LightGreyButton"
             android:text="@string/key_percent"
             app:layout_constraintBottom_toTopOf="@+id/key_9"
             app:layout_constraintEnd_toStartOf="@+id/key_divide"
@@ -139,11 +140,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_divide"
-            style="@style/orange_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/OrangeButton"
             android:text="@string/key_divide"
             app:layout_constraintBottom_toTopOf="@+id/key_multiply"
             app:layout_constraintEnd_toEndOf="parent"
@@ -153,10 +152,9 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="spread" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_7"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/DigitButton"
             android:text="@string/key_7"
             app:layout_constraintBottom_toTopOf="@+id/key_4"
             app:layout_constraintEnd_toEndOf="@id/key_ac"
@@ -164,10 +162,9 @@
             app:layout_constraintStart_toStartOf="@id/key_ac"
             app:layout_constraintTop_toBottomOf="@+id/key_ac" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_8"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/DigitButton"
             android:text="@string/key_8"
             app:layout_constraintBottom_toTopOf="@+id/key_5"
             app:layout_constraintEnd_toEndOf="@id/key_plus_minus"
@@ -175,10 +172,9 @@
             app:layout_constraintStart_toStartOf="@id/key_plus_minus"
             app:layout_constraintTop_toBottomOf="@+id/key_plus_minus" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_9"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/DigitButton"
             android:text="@string/key_9"
             app:layout_constraintBottom_toTopOf="@+id/key_6"
             app:layout_constraintEnd_toEndOf="@id/key_percent"
@@ -186,11 +182,9 @@
             app:layout_constraintStart_toStartOf="@id/key_percent"
             app:layout_constraintTop_toBottomOf="@+id/key_percent" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_multiply"
-            style="@style/orange_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/OrangeButton"
             android:text="@string/key_multiply"
             app:layout_constraintBottom_toTopOf="@+id/key_minus"
             app:layout_constraintEnd_toEndOf="@id/key_divide"
@@ -198,10 +192,9 @@
             app:layout_constraintStart_toStartOf="@id/key_divide"
             app:layout_constraintTop_toBottomOf="@+id/key_divide" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_4"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/DigitButton"
             android:text="@string/key_4"
             app:layout_constraintBottom_toTopOf="@+id/key_1"
             app:layout_constraintEnd_toEndOf="@id/key_7"
@@ -209,10 +202,9 @@
             app:layout_constraintStart_toStartOf="@id/key_7"
             app:layout_constraintTop_toBottomOf="@+id/key_7" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_5"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/DigitButton"
             android:text="@string/key_5"
             app:layout_constraintBottom_toTopOf="@+id/key_2"
             app:layout_constraintEnd_toEndOf="@id/key_8"
@@ -220,10 +212,9 @@
             app:layout_constraintStart_toStartOf="@id/key_8"
             app:layout_constraintTop_toBottomOf="@+id/key_8" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_6"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/DigitButton"
             android:text="@string/key_6"
             app:layout_constraintBottom_toTopOf="@+id/key_3"
             app:layout_constraintEnd_toEndOf="@id/key_9"
@@ -231,11 +222,9 @@
             app:layout_constraintStart_toStartOf="@id/key_9"
             app:layout_constraintTop_toBottomOf="@+id/key_9" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_minus"
-            style="@style/orange_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/OrangeButton"
             android:text="@string/key_minus"
             app:layout_constraintBottom_toTopOf="@+id/key_plus"
             app:layout_constraintEnd_toEndOf="@id/key_multiply"
@@ -243,10 +232,9 @@
             app:layout_constraintStart_toStartOf="@id/key_multiply"
             app:layout_constraintTop_toBottomOf="@+id/key_multiply" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_1"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/DigitButton"
             android:text="@string/key_1"
             app:layout_constraintBottom_toTopOf="@+id/key_0"
             app:layout_constraintEnd_toEndOf="@id/key_4"
@@ -254,11 +242,9 @@
             app:layout_constraintStart_toStartOf="@id/key_4"
             app:layout_constraintTop_toBottomOf="@+id/key_4" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_2"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="5dp"
+            style="@style/DigitButton"
             android:text="@string/key_2"
             app:layout_constraintBottom_toTopOf="@+id/key_0"
             app:layout_constraintEnd_toEndOf="@id/key_5"
@@ -266,10 +252,9 @@
             app:layout_constraintStart_toStartOf="@id/key_5"
             app:layout_constraintTop_toBottomOf="@+id/key_5" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_3"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/DigitButton"
             android:text="@string/key_3"
             app:layout_constraintBottom_toTopOf="@+id/key_decimal"
             app:layout_constraintEnd_toEndOf="@id/key_6"
@@ -277,11 +262,9 @@
             app:layout_constraintStart_toStartOf="@id/key_6"
             app:layout_constraintTop_toBottomOf="@+id/key_6" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_plus"
-            style="@style/orange_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/OrangeButton"
             android:text="@string/key_plus"
             app:layout_constraintBottom_toTopOf="@+id/key_equal"
             app:layout_constraintEnd_toEndOf="@id/key_minus"
@@ -289,10 +272,11 @@
             app:layout_constraintStart_toStartOf="@id/key_minus"
             app:layout_constraintTop_toBottomOf="@+id/key_minus" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_0"
-            android:layout_width="0dp"
+            style="@style/DigitButton"
             android:layout_height="0dp"
+            android:layout_width="0dp"
             android:text="@string/key_0"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/key_2"
@@ -300,10 +284,9 @@
             app:layout_constraintStart_toStartOf="@id/key_1"
             app:layout_constraintTop_toBottomOf="@+id/key_1" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_decimal"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/DigitButton"
             android:text="@string/key_decimal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/key_3"
@@ -311,11 +294,9 @@
             app:layout_constraintStart_toStartOf="@id/key_3"
             app:layout_constraintTop_toBottomOf="@+id/key_3" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/key_equal"
-            style="@style/orange_button"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            style="@style/OrangeButton"
             android:text="@string/key_equal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/key_plus"

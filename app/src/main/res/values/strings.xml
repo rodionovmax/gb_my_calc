@@ -1,26 +1,28 @@
 <resources>
     <string name="app_name">Calculator</string>
-    <string name="key_ac">AC</string>
-    <string name="key_plus_minus">+/-</string>
-    <string name="key_percent">%</string>
-    <string name="key_divide">÷</string>
-    <string name="key_multiply">×</string>
-    <string name="key_minus">-</string>
-    <string name="key_plus">+</string>
-    <string name="key_equal">=</string>
-    <string name="key_decimal">.</string>
-    <string name="key_0">0</string>
-    <string name="key_1">1</string>
-    <string name="key_2">2</string>
-    <string name="key_3">3</string>
-    <string name="key_4">4</string>
-    <string name="key_5">5</string>
-    <string name="key_6">6</string>
-    <string name="key_7">7</string>
-    <string name="key_8">8</string>
-    <string name="key_9">9</string>
-    <string name="display_entry">0</string>
-    <string name="main_background">background</string>
-    <string name="calc_title">Квасио</string>
+    <string name="key_ac" translatable="false">AC</string>
+    <string name="key_plus_minus" translatable="false">+/-</string>
+    <string name="key_percent" translatable="false">%</string>
+    <string name="key_divide" translatable="false">÷</string>
+    <string name="key_multiply" translatable="false">×</string>
+    <string name="key_minus" translatable="false">-</string>
+    <string name="key_plus" translatable="false">+</string>
+    <string name="key_equal" translatable="false">=</string>
+    <string name="key_decimal" translatable="false">.</string>
+    <string name="key_0" translatable="false">0</string>
+    <string name="key_1" translatable="false">1</string>
+    <string name="key_2" translatable="false">2</string>
+    <string name="key_3" translatable="false">3</string>
+    <string name="key_4" translatable="false">4</string>
+    <string name="key_5" translatable="false">5</string>
+    <string name="key_6" translatable="false">6</string>
+    <string name="key_7" translatable="false">7</string>
+    <string name="key_8" translatable="false">8</string>
+    <string name="key_9" translatable="false">9</string>
+    <string name="display_entry" translatable="false">0</string>
+    <string name="main_background" translatable="false">background</string>
+    <string name="calc_title">Kvasio</string>
     <string name="toast_calculating_results_msg">Placeholder for calculating results …</string>
+    <string name="disable_dark_mode">Disable Dark Mode</string>
+    <string name="enable_dark_mode">Enable Dark Mode</string>
 </resources>

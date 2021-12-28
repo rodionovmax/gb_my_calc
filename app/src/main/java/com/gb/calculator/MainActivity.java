@@ -2,7 +2,9 @@ package com.gb.calculator;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String DISPLAY = "DISPLAY";
     private Display display = new Display();
 
+    private Button btnToggleDark;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,61 @@ public class MainActivity extends AppCompatActivity {
         onChangeSign();
         onPercent();
         onEqual();
+
+        btnToggleDark = findViewById(R.id.night_mode_button);
+
+        // Saving state of our app using SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences(
+                "sharedPrefs", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false);
+
+        // When user reopens the app after applying dark/light mode
+        if (isDarkModeOn) {
+            AppCompatDelegate
+                    .setDefaultNightMode(
+                            AppCompatDelegate
+                                    .MODE_NIGHT_YES);
+            btnToggleDark.setText(R.string.disable_dark_mode);
+        } else {
+            AppCompatDelegate
+                    .setDefaultNightMode(
+                            AppCompatDelegate
+                                    .MODE_NIGHT_NO);
+            btnToggleDark.setText(R.string.enable_dark_mode);
+        }
+
+        btnToggleDark.setOnClickListener(view -> {
+            
+            if (isDarkModeOn) {
+
+                // if dark mode is on it will turn it off
+                AppCompatDelegate
+                        .setDefaultNightMode(
+                                AppCompatDelegate
+                                        .MODE_NIGHT_NO);
+
+                editor.putBoolean("isDarkModeOn", false);
+                editor.apply();
+
+                // change text of Button
+                btnToggleDark.setText(R.string.enable_dark_mode);
+            }
+            else {
+
+                // if dark mode is off it will turn it on
+                AppCompatDelegate
+                        .setDefaultNightMode(
+                                AppCompatDelegate
+                                        .MODE_NIGHT_YES);
+
+                editor.putBoolean("isDarkModeOn", true);
+                editor.apply();
+
+                // change text of Button
+                btnToggleDark.setText(R.string.disable_dark_mode);
+            }
+        });
 
     }
 
